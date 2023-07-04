@@ -1,0 +1,32 @@
+<div class="wrapper">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+
+        <div>
+          <label for="firstName">First Name</label>
+          <input type="text" id="firsName" formControlName="firstName" required>
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+            <p *ngIf="firstName.hasError('required')" class="error">
+              Pleaser enter your fist name
+            </p>
+          </div>
+
+        </div>
+
+        <div>
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" formControlName="lastNamed" required>
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+            <p *ngIf="lastName.hasError('required')" class="error">
+              Pleaser enter your last name
+            </p>
+          </div>
+        </div>
+
+
+        <div>
+          <button [disabled]="!form.valid">Submit</button>
+        </div>
+  </form>
+
+</div>
