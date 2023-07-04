@@ -6,20 +6,29 @@
           <label for="firstName">First Name</label>
           <input type="text" id="firsName" formControlName="firstName" required>
           <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
-            <p *ngIf="firstName.hasError('required')" class="error">
-              Pleaser enter your fist name
-            </p>
+            <div *ngIf="firstName.hasError('required')" class="error">
+              <p>Please go away 🤬</p>
+            </div>
           </div>
 
         </div>
 
         <div>
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" formControlName="lastNamed" required>
+          <label for="lastName">First Name</label>
+          <input type="text" id="lastName" formControlName="lastName" required>
           <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-            <p *ngIf="lastName.hasError('required')" class="error">
-              Pleaser enter your last name
-            </p>
+            <div *ngIf="lastName.hasError('required')" class="error">
+              <p>And don't come back 😁</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <app-custom-form-input formControlName = "address"></app-custom-form-input>
+          <div *ngIf="address.invalid && (address.dirty || address.touched)">
+            <div *ngIf="address.hasError('required')" class="error">
+              <p>Go GO GO 😁</p>
+            </div>
           </div>
         </div>
 

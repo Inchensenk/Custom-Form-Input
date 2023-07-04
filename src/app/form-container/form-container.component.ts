@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CustomFormInputComponent } from '../custom-form-input/custom-form-input.component';
 
 @Component({
   selector: 'app-form-container',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Va
   styleUrls: ['./form-container.component.scss'],
 
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule, CustomFormInputComponent]
 })
 export class FormContainerComponent implements OnInit{
 
@@ -24,6 +25,7 @@ export class FormContainerComponent implements OnInit{
     this.form = this.fb.group({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required])
     })
   }
 
@@ -33,6 +35,10 @@ export class FormContainerComponent implements OnInit{
 
   get lastName(){
     return this.form.controls['lastName'];
+  }
+
+  get address(){
+    return this.form.controls['address'];
   }
 
   onSubmit (formData: any){
